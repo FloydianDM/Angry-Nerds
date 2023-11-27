@@ -9,8 +9,8 @@ namespace AngryNerds
 {
     public class ScoreManager : MonoBehaviour
     {
-        private int _score;
-
+        public int Score {get; private set;}
+        
         private GameManager _gameManager;
 
         private void Start()
@@ -20,7 +20,7 @@ namespace AngryNerds
 
         public void AddScore(int addedScore)
         {
-            _score += addedScore;
+            Score += addedScore;
         }
     }
 }

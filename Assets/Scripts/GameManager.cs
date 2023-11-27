@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 namespace AngryNerds
@@ -36,6 +35,17 @@ namespace AngryNerds
         {
             Scene activeScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(activeScene.buildIndex);
+        }
+
+        public void LoadNextLevel()
+        {
+            if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+            {
+                RestartGame();    
+            }
+
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(nextSceneIndex);
         }
 
         public void QuitGame()
