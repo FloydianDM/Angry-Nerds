@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d070420cc2de7476da241dfac6cf1d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundCanvas: {fileID: 0}
-  startCanvas: {fileID: 0}
-  scoreCanvas: {fileID: 0}
   scoreText: {fileID: 0}
   healthText: {fileID: 0}
+  gameText: {fileID: 0}

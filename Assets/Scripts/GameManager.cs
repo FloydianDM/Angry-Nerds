@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace AngryNerds
 {
     public class GameManager : MonoBehaviour
     {
         private static GameManager _instance;
+
+        private ScoreManager _scoreManager;
+        private HealthManager _healthManager;
 
         private void Awake()
         {
@@ -16,6 +20,8 @@ namespace AngryNerds
 
         private void Start()
         {
+            _scoreManager = GetComponent<ScoreManager>();
+            _healthManager = GetComponent<HealthManager>();
             StartMenuScreen();
         }
 
@@ -36,6 +42,8 @@ namespace AngryNerds
         public void StartMenuScreen()
         {
             SceneManager.LoadScene(0);
+            _scoreManager.ResetScore();
+            _healthManager.ResetHealth();
         }
 
         public void StartGame()
@@ -51,14 +59,13 @@ namespace AngryNerds
 
         public void LoadNextLevel()
         {
-            if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+            if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
             {
-                StartMenuScreen();
-                
-                return;    
+                StartMenuScreen(); 
             }
-
+ 
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+             
             SceneManager.LoadScene(nextSceneIndex);
         }
 

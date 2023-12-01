@@ -19,7 +19,7 @@ namespace AngryNerds
             _gameManager = FindObjectOfType<GameManager>();
         }
 
-        private void ResetHealth()
+        public void ResetHealth()
         {
             _health = _initialHealth;
         }
