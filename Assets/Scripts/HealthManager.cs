@@ -10,6 +10,7 @@ namespace AngryNerds
     {
         private GameManager _gameManager;
         private int _health = 5;
+        public int Health => _health;
         private int _initialHealth;
 
         private void Start()
@@ -39,6 +40,7 @@ namespace AngryNerds
         private void HandleDeath()
         {
             _gameManager.RestartLevel();
+            ResetHealth();
         }
 
     }    

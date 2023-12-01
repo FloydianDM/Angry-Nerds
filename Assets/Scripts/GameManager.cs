@@ -14,23 +14,35 @@ namespace AngryNerds
             ManageSingleton();
         }
 
+        private void Start()
+        {
+            StartMenuScreen();
+        }
+
         private void ManageSingleton()
         {
             if (_instance != null)
             {
+                gameObject.SetActive(false);
                 Destroy(gameObject);
             }
             else
             {
                 _instance = this;
+                DontDestroyOnLoad(gameObject);
             }
         }
 
-        public void RestartGame()
+        public void StartMenuScreen()
         {
             SceneManager.LoadScene(0);
         }
 
+        public void StartGame()
+        {
+            SceneManager.LoadScene(1);
+        }
+        
         public void RestartLevel()
         {
             Scene activeScene = SceneManager.GetActiveScene();
@@ -41,7 +53,9 @@ namespace AngryNerds
         {
             if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
             {
-                RestartGame();    
+                StartMenuScreen();
+                
+                return;    
             }
 
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
