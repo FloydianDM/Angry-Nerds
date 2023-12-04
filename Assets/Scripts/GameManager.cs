@@ -22,7 +22,6 @@ namespace AngryNerds
         {
             _scoreManager = GetComponent<ScoreManager>();
             _healthManager = GetComponent<HealthManager>();
-            StartMenuScreen();
         }
 
         private void ManageSingleton()
@@ -39,9 +38,9 @@ namespace AngryNerds
             }
         }
 
-        public void StartMenuScreen()
+        public void SetMenuScreen()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Start");
             _scoreManager.ResetScore();
             _healthManager.ResetHealth();
         }
@@ -57,11 +56,23 @@ namespace AngryNerds
             SceneManager.LoadScene(activeScene.buildIndex);
         }
 
+        public void SetWinScene(bool isWin)
+        {
+            if (isWin)
+            {
+                SceneManager.LoadScene("Win");
+            }
+            else
+            {
+                SceneManager.LoadScene("Lose");
+            }
+        }
+
         public void LoadNextLevel()
         {
-            if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+            if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 3)
             {
-                StartMenuScreen(); 
+                SetWinScene(true);
             }
  
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;

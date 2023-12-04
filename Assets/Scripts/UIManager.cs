@@ -10,8 +10,6 @@ namespace AngryNerds
     {
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private TextMeshProUGUI healthText;
-        [SerializeField] private TextMeshProUGUI gameText;
-        public TextMeshProUGUI GameText => gameText;
 
         private GameManager _gameManager;
         private ScoreManager _scoreManager;

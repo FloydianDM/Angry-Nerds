@@ -39,7 +39,7 @@ namespace AngryNerds
 
         private void HandleDeath()
         {
-            _gameManager.RestartLevel();
+            _gameManager.SetWinScene(false);
             ResetHealth();
         }
 
