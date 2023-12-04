@@ -49,12 +49,6 @@ namespace AngryNerds
         {
             SceneManager.LoadScene(1);
         }
-        
-        public void RestartLevel()
-        {
-            Scene activeScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(activeScene.buildIndex);
-        }
 
         public void SetWinScene(bool isWin)
         {
@@ -66,6 +60,9 @@ namespace AngryNerds
             {
                 SceneManager.LoadScene("Lose");
             }
+
+            _scoreManager.ResetScore();
+            _healthManager.ResetHealth();
         }
 
         public void LoadNextLevel()
